@@ -35,7 +35,7 @@ cd sentiment-analysis-ml
 3. Install dependencies  
 python -m pip install -r requirements.txt
 4. Run the Jupyter Notebook  
-jupyter notebook
+python -m notebook
 5. Open `sentiment_analysis.ipynb` and run all cells.
 
 ## Results
