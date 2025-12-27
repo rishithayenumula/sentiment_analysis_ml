@@ -33,7 +33,7 @@ git clone https://github.com/rishithayenumula/sentiment-analysis-ml.git
 2. Navigate to the project folder  
 cd sentiment-analysis-ml
 3. Install dependencies  
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 4. Run the Jupyter Notebook  
 jupyter notebook
 5. Open `sentiment_analysis.ipynb` and run all cells.
