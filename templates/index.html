@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sentiment Bureau — Text Inspection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="desk">
+
+  <header class="letterhead">
+    <div class="letterhead-left">
+      <span class="crest">&#9875;</span>
+      <div>
+        <div class="bureau-name">Sentiment Bureau</div>
+        <div class="bureau-sub">Division of Text Inspection &amp; Classification</div>
+      </div>
+    </div>
+    <div class="letterhead-right">
+      <span class="case-label">CASE No.</span>
+      <span class="case-number" id="caseNumber">000-00</span>
+    </div>
+  </header>
+
+  <main class="folder">
+
+    <section class="exhibit">
+      <div class="exhibit-tab">Exhibit A — Submitted Text</div>
+      <div class="exhibit-body">
+        <textarea id="reviewInput" placeholder="Type or paste a sentence to be inspected... e.g. &quot;The delivery was late and the box was damaged.&quot;" maxlength="600"></textarea>
+        <div class="exhibit-footer">
+          <div class="chip-row" id="exampleChips">
+            <button class="chip" type="button">The staff were incredibly rude to us</button>
+            <button class="chip" type="button">Best meal I've had all year</button>
+            <button class="chip" type="button">It broke after a single use</button>
+          </div>
+          <button class="submit-btn" id="submitBtn">
+            <span class="btn-label">Submit for Inspection</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="report">
+      <div class="report-tab">Inspector's Report</div>
+      <div class="report-body">
+
+        <div class="report-empty" id="reportEmpty">
+          <p>No submission on file yet.</p>
+          <p class="small">Enter text on the left and submit it for classification.</p>
+        </div>
+
+        <div class="report-content" id="reportContent" hidden>
+          <div class="stamp-zone">
+            <div class="stamp" id="stampEl">
+              <span id="stampText">POSITIVE</span>
+            </div>
+          </div>
+
+          <div class="gauge-row">
+            <div class="gauge-wrap">
+              <svg viewBox="0 0 200 110" class="gauge-svg">
+                <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-track" />
+                <path d="M 15 100 A 85 85 0 0 1 185 100" class="gauge-fill" id="gaugeFill" />
+                <line x1="100" y1="100" x2="100" y2="30" class="gauge-needle" id="gaugeNeedle" />
+                <circle cx="100" cy="100" r="6" class="gauge-hub" />
+              </svg>
+              <div class="gauge-caption">CONFIDENCE</div>
+              <div class="gauge-value" id="confidenceValue">--%</div>
+            </div>
+
+            <div class="breakdown-wrap">
+              <div class="breakdown-row">
+                <span class="breakdown-label">positive</span>
+                <div class="breakdown-track"><div class="breakdown-fill positive-fill" id="posFill"></div></div>
+                <span class="breakdown-pct" id="posPct">--%</span>
+              </div>
+              <div class="breakdown-row">
+                <span class="breakdown-label">negative</span>
+                <div class="breakdown-track"><div class="breakdown-fill negative-fill" id="negFill"></div></div>
+                <span class="breakdown-pct" id="negPct">--%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="filed-under">
+            <span class="filed-label">Filed:</span> <span id="filedTimestamp">--</span>
+            &nbsp;·&nbsp;
+            <span class="filed-label">Model:</span> <span id="modelName">--</span>
+          </div>
+        </div>
+
+        <div class="report-error" id="reportError" hidden>
+          <p id="errorText">Something went wrong.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="desk-footer">
+    Classical ML text classification (TF-IDF + linear model) — trained on a small demonstration dataset. Not intended for high-stakes decisions.
+  </footer>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
